@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 
 const { mountainRouter } = require('./Controllers/mountains.js')
-// const { focusRouter } = require('./Controllers/focus.js')
-// const { relaxRouter } = require('./Controllers/relax.js')
+const { hiddenPathRouter } = require('./Controllers/hiddenPaths.js')
+const { slopeRouter } = require('./Controllers/slopes.js')
+const { buildingRouter } = require('./Controllers/buildings.js')
 
 app.use(express.urlencoded({extended: true}))
 
@@ -12,8 +13,9 @@ app.use(express.json())
 // app.use(express.static(`${__dirname}/client/build`))
 
 app.use('/api/mountains', mountainRouter)
-// app.use('/api/focuses', focusRouter)
-// app.use('/api/relaxes', relaxRouter)
+app.use('/api/hiddenPaths', hiddenPathRouter)
+app.use('/api/slopes', slopeRouter)
+app.use('/api/buildings', buildingRouter)
 
 // app.get('/*', (req, res) => {
 //     res.sendFile(`${__dirname}/client/build/index.html`)
