@@ -7,12 +7,15 @@ import Slopes from './components/Slopes';
 import Footer from './components/Footer';
 import Buildings from './components/Buildings';
 import HiddenPaths from './components/HiddenPaths';
+import ScrollToTop from './components/ScrollToTop';
+import SingleSlope from './components/SingleSlope';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop/>
         <div className="title">
           <Link to="/"><h1>SNOWBOARDER</h1></Link>
         </div>
@@ -20,6 +23,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={ Home }/>
           <Route exact path="/slopes" component={ Slopes }/>
+          <Route path="/slopes/:slopeId" component={ SingleSlope }/>
           <Route exact path="/hidden-paths" component={ HiddenPaths }/>
           <Route exact path="/buildings" component={ Buildings }/>
         </Switch>

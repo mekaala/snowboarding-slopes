@@ -16,7 +16,7 @@ export default class Slopes extends Component {
     }
 
     getSlopes = () => {
-        Axios.get('/api/slopes').then((response) => {
+        Axios.get('http://localhost:3001/api/slopes').then((response) => {
             this.setState({
                 slopes: response.data,
             })
@@ -42,7 +42,7 @@ export default class Slopes extends Component {
     }
     submitCreateForm = (event) => {
         event.preventDefault();
-        Axios.post('/api/slopes', this.state.newSlope).then(() => {
+        Axios.post('http://localhost:3001/api/slopes', this.state.newSlope).then(() => {
             this.getSlopes();
         })
         this.setState({
@@ -70,7 +70,7 @@ export default class Slopes extends Component {
                         <div><button onClick={ this.toggleCreateForm }>
                                 { this.state.showCreateForm
                                     ? 'Cancel'
-                                    : 'Create New Slope'
+                                    : 'Add New Slope'
                                 }
                             </button></div>
                             { this.state.showCreateForm
@@ -80,7 +80,7 @@ export default class Slopes extends Component {
                                     <label>Description: </label><textarea type="text" name="description" onChange={ this.changeInput } placeholder="Description"/><br/>
                                     <label>Difficulty: </label><input type="text" name="difficulty" onChange={ this.changeInput } placeholder="Difficulty"/><br/>
                                     <label>Image: </label><input type="text" name="image" onChange={ this.changeInput } placeholder="Environment Image (Optional)"/><br/>
-                                    <input className="submit" type="submit" value="Create New Environment"/>
+                                    <input className="submit" type="submit" value="Create New Slope"/>
                                 </form>
                                 : null
                             }
