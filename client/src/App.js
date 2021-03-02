@@ -9,7 +9,7 @@ import Buildings from './components/Buildings';
 import HiddenPaths from './components/HiddenPaths';
 import ScrollToTop from './components/ScrollToTop';
 import SingleSlope from './components/SingleSlope';
-
+import SingleHiddenPath from './components/SingleHiddenPath';
 
 function App() {
   return (
@@ -24,7 +24,9 @@ function App() {
           <Route exact path="/" component={ Home }/>
           <Route exact path="/slopes" component={ Slopes }/>
           <Route path="/slopes/:slopeId" component={ SingleSlope }/>
-          <Route exact path="/hidden-paths" component={ HiddenPaths }/>
+          <Route exact path="/hiddenPaths" component={ HiddenPaths }/>
+          <Route path="/hiddenPaths/:hiddenPathId" component={ SingleHiddenPath }/>
+          <Route exact path="/buildings" component={ Buildings }/>
           <Route exact path="/buildings" component={ Buildings }/>
         </Switch>
         <Footer/>
